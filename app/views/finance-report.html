@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Getting started - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+	  items: [
+	    {
+	      text: "GOV.UK Prototype Kit",
+	      href: "/docs"
+	    }
+	  ]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Finance</h1>
+
+      <p class="govuk-body-l">
+        Report containing each employee and their gross pay for the current pay period
+      </p>
+
+	   <p class="govuk-body-l">
+        Note: The pay is net of a simple tax rate (25%) and, for sales employees, their commission for the total sales they made for that period, which will then be reset before the start of the next period.
+      </p>
+
+
+ {% from "govuk/components/button/macro.njk" import govukButton %}
+ 
+ {{ govukButton({
+ text: "Back to Finance",
+ href: "/finance"
+ }) }}
+
+
+
+    
+
+  </div>
+
+
+</div>
+
+
+{% endblock %}
