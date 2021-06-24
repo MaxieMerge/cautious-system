@@ -106,3 +106,4 @@ dist
 public/
 .scss
 .DS_Store
+app/dbconfig.json
