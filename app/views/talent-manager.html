@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Getting started - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+	  items: [
+	    {
+	      text: "GOV.UK Prototype Kit",
+	      href: "/docs"
+	    }
+	  ]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Talent Manager</h1>
+
+      <p class="govuk-body-l">
+        Select an option
+      </p>
+
+
+ {% from "govuk/components/button/macro.njk" import govukButton %}
+ 
+ {{ govukButton({
+ text: "Create project",
+ href: "/talent-manager-create-project"
+ }) }}
+
+<br> </br>
+
+  <p class="govuk-body-l">
+       Generate Reports
+      </p>
+
+
+{{ govukButton({
+ text: "See Project Employees",
+ href: "/talent-manager-project-report"
+ }) }}
+
+<br> </br>
+
+ {{ govukButton({
+ text: "Employees that have not been assigned ",
+ href: "/finance-reports"
+ }) }}
+
+<br> </br>
+
+ {{ govukButton({
+ text: "See projects",
+ href: "/finance-reports"
+ }) }}
+
+
+
+
+
+
+
+    
+
+  </div>
+
+
+</div>
+
+
+{% endblock %}
