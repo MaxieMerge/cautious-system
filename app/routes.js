@@ -23,6 +23,16 @@ router.get('/empadded', (req, res) =>{
     res.render('empadded')
 })
 
+router.get('/viewemployees', (req, res) =>{
+    res.render('selectdepartment')
+})
+
+router.post('/viewemployees', async (req, res) => {
+    var emp = req.body;
+    let insertedKey = await hrteam.getEmps(req.body)
+    res.render('viewemployees', { employees: await hrteam.getEmps(department)} )}
+)
+
 router.get('/sales', (req, res) => {
     res.render('sales-team')
 })
