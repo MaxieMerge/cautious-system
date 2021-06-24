@@ -1,19 +1,4 @@
-{% extends "layout.html" %}
-
-{% block pageTitle %}
-Getting started - GOV.UK Prototype Kit
-{% endblock %}
-
-{% block beforeContent %}
-	{{ govukBreadcrumbs({
-	  items: [
-	    {
-	      text: "GOV.UK Prototype Kit",
-	      href: "/docs"
-	    }
-	  ]
-	}) }}
-{% endblock %}
+{% extends "layout_unbranded.html" %}
 
 {% block content %}
 
@@ -43,5 +28,9 @@ Getting started - GOV.UK Prototype Kit
 
 </div>
 
+	{{ govukButton({
+        text: "Back",
+        href: "/"
+    }) }}
 
 {% endblock %}
