@@ -1,0 +1,28 @@
+{% extends "layout_unbranded.html" %} 
+{% block pageTitle %} 
+  HR Page 
+{% endblock %} 
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+    <!-- <a href="#" class="govuk-back-link">Back</a> -->
+  
+    <main class="govuk-main-wrapper">
+  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">Employee added with success!</h1>
+          <p class="govuk-body">Click <a href="/hrpage">here</a> to get back to main page</p>
+          <hr>
+        </div>
+      </div>
+  
+    </main>
+  </div>
+
+
+{% endblock %}
