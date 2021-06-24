@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Getting started - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+	  items: [
+	    {
+	      text: "GOV.UK Prototype Kit",
+	      href: "/docs"
+	    }
+	  ]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Finance</h1>
+
+      <p class="govuk-body-l">
+        Generate a report containing each employee and their gross pay for the current pay period
+      </p>
+
+
+ {% from "govuk/components/button/macro.njk" import govukButton %}
+ 
+ {{ govukButton({
+ text: "Generate Report",
+ href: "/finance-report"
+ }) }}
+
+
+
+    
+
+  </div>
+
+
+</div>
+
+
+{% endblock %}

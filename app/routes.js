@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const hrteam = require('./hrteam.js')
 
+
 // Add your routes here - above the module.exports line
 
 router.get('/hr', (req, res) => {
@@ -20,6 +21,18 @@ router.post('/empadded', async (req, res) => {
 
 router.get('/empadded', (req, res) =>{
     res.render('empadded')
+})
+
+router.get('/sales', (req, res) => {
+    res.render('sales-team')
+})
+
+router.get('/finance', (req, res) => {
+    res.render('finance')
+})
+
+router.get('/talent', (req, res) => {
+    res.render('talent-manager')
 })
 
 module.exports = router

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Getting started - GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBreadcrumbs({
+	  items: [
+	    {
+	      text: "GOV.UK Prototype Kit",
+	      href: "/docs"
+	    }
+	  ]
+	}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Talent Manager Report</h1>
+
+      <p class="govuk-body-l">
+       See projects that have no employees assigned, employees that have not been assigned to projects, and the number of employees on any particular project.
+      </p>
+
+
+ {% from "govuk/components/button/macro.njk" import govukButton %}
+ 
+
+
+  </div>
+
+
+</div>
+
+
+{% endblock %}
