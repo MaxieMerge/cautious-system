@@ -13,13 +13,13 @@
 {% if employees and employees.length > 0 %} 
 {% set employeerows = [] %} 
 {% for employee in employees | sort(attribute='Fname') %}
-{% set employeerows = (employeerows.push([{ text: employee.ID }, {text: employee.Fname}, 
-                    {text: employee.Lname}, {text: employee.City}, {text: employee.Postcode}, {text: employee.BAN},
-                    {text: employee.Salary}, {text: employee.NIN}]), employeerows) %} 
+{% set employeerows = (employeerows.push([{ text: employee.EmployeeID }, { text: employee.ProjectID }, {text: employee.Fname}, 
+                    {text: employee.Lname}, {text: employee.City}, {text: employee.Postcode}, {text: employee.StreetAddress}, {text: employee.SortCode}, {text: employee.BAN},
+                    {text: employee.Salary}, {text: employee.NIN}, {text: employee.Department}]), employeerows) %} 
 {% endfor %} 
 {{govukTable({ 
-    head: [ { text: "ID" },{ text: "First Name" },{ text: "Last Name" }, 
-            { text: "City" },{ text: "Postcode" },{ text: "BAN" },{ text: "Salary" },{ text: "NIN" } ],
+    head: [ { text: "ID" }, { text: "ProjectID" }, { text: "First Name" },{ text: "Last Name" }, 
+            { text: "City" },{ text: "Postcode" }, { text: "StreetAddress"}, {text: "Sortcode"}, { text: "BAN" },{ text: "Salary" },{ text: "NIN" }, { text: "Department"} ],
     rows: employeerows }) 
 }} 
 {% else %}

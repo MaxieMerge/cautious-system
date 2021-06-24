@@ -21,7 +21,7 @@ function wrapDB (dbconfig) {
  
  getEmpInDept = async ( department ) => { 
     return await db.query( 
-        "SELECT EmployeeID, ProjectID, CONCAT(Fname + ' ' + Lname) as Name, City, Postcode, StreetAddress, SortCode, BAN, Salary, NIN" 
+        "SELECT EmployeeID, ProjectID, Fname, Lname, City, Postcode, StreetAddress, SortCode, BAN, Salary, NIN, Department" 
         + " FROM Employee WHERE Department = ?", 
                             [department]) 
  }
