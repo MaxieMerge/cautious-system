@@ -1,0 +1,56 @@
+{% extends "layout_unbranded.html" %} 
+{% block pageTitle %} 
+  Add Sales Employee
+{% endblock %} 
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+
+{% block content %}
+
+{% if errormessage %}
+<div class="govuk-error-message">{{ errormessage }}</div> 
+{% endif %}
+
+
+<form method="post" action="/salesempadded">
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Sales Employee specifics:</h1>
+      </div>
+    </div>
+  </main>
+</div>
+{{ govukInput({
+  label: {
+    text: "Employee ID:"
+  },
+  id: "EmployeeID",
+  name: "EmployeeID"
+}) }}
+{{ govukInput({
+  label: {
+    text: "Commission Rate:"
+  },
+  id: "CommissionRate",
+  name: "CommissionRate"
+}) }}
+{{ govukInput({
+  label: {
+    text: "Total Sales:"
+  },
+  id: "TotalSales",
+  name: "TotalSales"
+}) }}
+    {{ govukButton({
+        type: "submit",
+        text: "Save and continue"
+    }) }}
+</form>
+{% endblock %}

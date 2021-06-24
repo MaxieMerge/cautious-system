@@ -1,23 +1,37 @@
 {% extends "layout_unbranded.html" %} 
 {% block pageTitle %} 
-  HR Page 
+  Add Employee
 {% endblock %} 
 
 {% block header %}
 {{ super() }}
 {% endblock %}
 
+
 {% block content %}
+{% if errormessage %}
+<div class="govuk-error-message">{{ errormessage }}</div> 
+{% endif %}
+
 <form method="post" action="/empadded">
     {% from "govuk/components/input/macro.njk" import govukInput %}
     {% from "govuk/components/button/macro.njk" import govukButton %}
-
+    <div class="govuk-width-container">
+        <main class="govuk-main-wrapper">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <h1 class="govuk-heading-xl">Employee specifics:</h1>
+            </div>
+          </div>
+        </main>
+      </div>
     {{ govukInput({
       label: {
         text: "First Name:"
       },
       id: "Fname",
       name: "Fname"
+
     }) }}
     {{ govukInput({
         label: {
@@ -82,6 +96,7 @@
         id: "Department",
         name: "Department"
       }) }}
+
     {{ govukButton({
         type: "submit",
         text: "Save and continue"
@@ -91,7 +106,4 @@
         href: "/hrpage"
     }) }}
 </form>
-
-
-
 {% endblock %}

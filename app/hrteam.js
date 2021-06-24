@@ -34,3 +34,14 @@ function wrapDB (dbconfig) {
     let results = await db.query('INSERT INTO Employee SET ?', newEmp) 
     return results.insertId; 
  }
+
+ exports.addSalesEmp = async (newSalesEmp) => { 
+    let results = await db.query('INSERT INTO SalesEmployee SET ?', newSalesEmp) 
+    return results.insertId; 
+ }
+
+ exports.checkIfEmployeeIDexists = (EmployeeID) => {
+    return db.query(
+        "SELECT Fname FROM Employee WHERE EmployeeID = ?", [EmployeeID]
+    )
+ }
