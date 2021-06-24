@@ -29,7 +29,8 @@ router.get('/viewemployees', (req, res) =>{
 
 router.post('/viewemployees', async (req, res) => {
     var emp = req.body;
-    let insertedKey = await hrteam.getEmps(req.body)
+    var department = req.body.department
+    let insertedKey = await hrteam.getEmps(department)
     res.render('viewemployees', { employees: await hrteam.getEmps(department)} )}
 )
 
