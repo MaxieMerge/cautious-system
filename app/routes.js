@@ -31,7 +31,7 @@ router.post('/salesempadded', async (req, res) => {
     let validation_output = validateSalesEmployee(salesEmp)
 
     if(validation_output === true){
-        // let insertedKey = await hrteam.addSalesEmp(salesEmp)
+        let insertedKey = await hrteam.addSalesEmp(salesEmp)
         res.render('salesempadded')
     }else{
         res.render('addsalesemp', {errormessage: validation_output})
@@ -185,10 +185,10 @@ async function validateSalesEmployee(emp){
         return "INVALID INPUT: EmployeeID is too big"
     }    
 
-    var output = await hrteam.checkIfEmployeeIDexists(emp.EmployeeID)
-    if(output.length === 0){
-        return "INVALID INPUT: EmployeeID doesnt exist"
-    }
+    // var output = await hrteam.checkIfEmployeeIDexists(emp.EmployeeID)
+    // if(output.length === 0){
+    //     return "INVALID INPUT: EmployeeID doesnt exist"
+    // }
 
     if(emp.CommissionRate < 0){
         return "INVALID INPUT: Commission Rate cannot be negative"
