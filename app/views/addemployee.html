@@ -1,0 +1,109 @@
+{% extends "layout_unbranded.html" %} 
+{% block pageTitle %} 
+  Add Employee
+{% endblock %} 
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+
+{% block content %}
+{% if errormessage %}
+<div class="govuk-error-message">{{ errormessage }}</div> 
+{% endif %}
+
+<form method="post" action="/empadded">
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+    <div class="govuk-width-container">
+        <main class="govuk-main-wrapper">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <h1 class="govuk-heading-xl">Employee specifics:</h1>
+            </div>
+          </div>
+        </main>
+      </div>
+    {{ govukInput({
+      label: {
+        text: "First Name:"
+      },
+      id: "Fname",
+      name: "Fname"
+
+    }) }}
+    {{ govukInput({
+        label: {
+          text: "Last Name:"
+        },
+        id: "Lname",
+        name: "Lname"
+      }) }}
+      {{ govukInput({
+        label: {
+          text: "City:"
+        },
+        id: "City",
+        name: "City"
+      }) }}
+      {{ govukInput({
+        label: {
+          text: "Postcode:"
+        },
+        id: "Postcode",
+        name: "Postcode"
+      }) }}
+      {{ govukInput({
+        label: {
+          text: "Street Address:"
+        },
+        id: "StreetAddress",
+        name: "StreetAddress"
+      }) }}
+      {{ govukInput({
+        label: {
+          text: "Sortcode:"
+        },
+        id: "SortCode",
+        name: "SortCode"
+      }) }}
+      {{ govukInput({
+        label: {
+          text: "BAN:"
+        },
+        id: "BAN",
+        name: "BAN"
+      }) }}
+      {{ govukInput({
+        label: {
+          text: "Salary:"
+        },
+        id: "Salary",
+        name: "Salary"
+      }) }}
+      {{ govukInput({
+        label: {
+          text: "NIN:"
+        },
+        id: "NIN",
+        name: "NIN"
+      }) }}
+      {{ govukInput({
+        label: {
+          text: "Department:"
+        },
+        id: "Department",
+        name: "Department"
+      }) }}
+
+    {{ govukButton({
+        type: "submit",
+        text: "Save and continue"
+    }) }}
+        {{ govukButton({
+        text: "Back",
+        href: "/hrpage"
+    }) }}
+</form>
+{% endblock %}
