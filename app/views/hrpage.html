@@ -8,9 +8,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-width-container">
-    <a href="/" class="govuk-back-link">Back</a>
-  
+<div class="govuk-width-container">  
     <main class="govuk-main-wrapper">
   
       <div class="govuk-grid-row">
@@ -51,7 +49,11 @@
                 isStartButton: true
             }) }}        
         </div>
-      </div>     
+      </div> 
+              {{ govukButton({
+        text: "Back",
+        href: "/"
+    }) }}    
 </form>
 
 {% endblock %}

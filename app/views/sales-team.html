@@ -1,47 +1,29 @@
-{% extends "layout.html" %}
-
-{% block pageTitle %}
-Getting started - GOV.UK Prototype Kit
-{% endblock %}
-
-{% block beforeContent %}
-	{{ govukBreadcrumbs({
-	  items: [
-	    {
-	      text: "GOV.UK Prototype Kit",
-	      href: "/docs"
-	    }
-	  ]
-	}) }}
-{% endblock %}
+{% extends "layout_unbranded.html" %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Sales Team</h1>
+			<h1 class="govuk-heading-xl">Sales Team</h1>
 
-      <p class="govuk-body-l">
+			<p class="govuk-body-l">
        Employees with highest sales
       </p>
 
+			{% from "govuk/components/button/macro.njk" import govukButton %}
 
- {% from "govuk/components/button/macro.njk" import govukButton %}
- 
- {{ govukButton({
+			{{ govukButton({
  text: "Generate Report",
  href: "/sales-team-report"
  }) }}
 
+		</div>
+	</div>
 
-
-    
-
-  </div>
-
-
-</div>
-
+	{{ govukButton({
+        text: "Back",
+        href: "/"
+    }) }}
 
 {% endblock %}
