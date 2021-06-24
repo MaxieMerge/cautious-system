@@ -1,0 +1,32 @@
+{% extends "layout_unbranded.html" %}
+{% block pageTitle %} 
+  HR Page 
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <form method="post" action="viewemployees">
+        <h1 class="govuk-heading-xl">
+    Enter Department
+</h1>
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    classes: "govuk-label--l"
+  },
+  id: "department",
+  name: "department"
+}) }}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Search"
+}) }}
+</form>
+    {% endblock %}

@@ -19,6 +19,17 @@ function wrapDB (dbconfig) {
  }
 
  
+ getEmpInDept = async ( department ) => { 
+    return await db.query( 
+        "SELECT EmployeeID, ProjectID, CONCAT(Fname + ' ' + Lname) as Name, City, Postcode, StreetAddress, SortCode, BAN, Salary, NIN" 
+        + " FROM Employee WHERE Department = ?", 
+                            [department]) 
+ }
+
+ exports.getEmps = async (department) => {
+        return await getEmpInDept(department);
+ }
+
  exports.addEmp = async (newEmp) => { 
     let results = await db.query('INSERT INTO Employee SET ?', newEmp) 
     return results.insertId; 

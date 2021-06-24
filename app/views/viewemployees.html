@@ -1,0 +1,28 @@
+{% extends "layout_unbranded.html" %} 
+{% block pageTitle %} 
+  HR Page 
+{% endblock %} 
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+
+{% block content %}
+<h2>List of Employees</h2>
+{% if employees and employees.length > 0 %} 
+{% set employeerows = [] %} 
+{% for employee in employees | sort(attribute='Fname') %}
+{% set employeerows = (employeerows.push([{ text: employee.ID }, {text: employee.Fname}, 
+                    {text: employee.Lname}, {text: employee.City}, {text: employee.Postcode}, {text: employee.BAN},
+                    {text: employee.Salary}, {text: employee.NIN}]), employeerows) %} 
+{% endfor %} 
+{{govukTable({ 
+    head: [ { text: "ID" },{ text: "First Name" },{ text: "Last Name" }, 
+            { text: "City" },{ text: "Postcode" },{ text: "BAN" },{ text: "Salary" },{ text: "NIN" } ],
+    rows: employeerows }) 
+}} 
+{% else %}
+There are no employees.
+{% endif %}
+{% endblock %}
