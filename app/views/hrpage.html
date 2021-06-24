@@ -1,0 +1,57 @@
+{% extends "layout_unbranded.html" %} 
+{% block pageTitle %} 
+  HR Page 
+{% endblock %} 
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+    <a href="#" class="govuk-back-link">Back</a>
+  
+    <main class="govuk-main-wrapper">
+  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">Welcome to the HR page!</h1>
+          <p class="govuk-body">Below are some options for your team</p>
+          <hr>
+        </div>
+      </div>
+  
+    </main>
+  </div>
+<form>
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukButton({
+                text: "Add Employee",
+                href: "#",
+                isStartButton: true
+              }) }}        
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukButton({
+                text: "Add Sales Employee",
+                href: "#",
+                isStartButton: true
+            }) }}        
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukButton({
+                text: "Generate Report",
+                href: "#",
+                isStartButton: true
+            }) }}        
+        </div>
+      </div>     
+</form>
+
+{% endblock %}
