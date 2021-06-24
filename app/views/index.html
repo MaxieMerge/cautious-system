@@ -26,28 +26,28 @@
 
         {{ govukButton({
           text: "HR",
-          href: "/hrpage"
+          href: "/hr"
         }) }}
       </div>
-      <div>
-        {% from "govuk/components/button/macro.njk" import govukButton %}
 
+      <div>
+      {{ govukButton({
+        text: "Sales",
+        href: "/sales"
+      }) }}
+      </div>
+
+      <div>
         {{ govukButton({
-          text: "/salespage"
+          text: "Finance",
+          href: "/finance"
         }) }}
       </div>
+      
       <div>
-        {% from "govuk/components/button/macro.njk" import govukButton %}
-
         {{ govukButton({
-          text: "/finacepage"
-        }) }}
-      </div>
-      <div>
-        {% from "govuk/components/button/macro.njk" import govukButton %}
-
-        {{ govukButton({
-          text: "/talentmanagerpager"
+          text: "Talent",
+          href: "/talent"
         }) }}
       </div>
     </div>
