@@ -1,0 +1,36 @@
+{% extends "addemployee.html" %}
+
+{% block pageTitle %} 
+  Add Sales Employee
+{% endblock %} 
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">Sales Employee specifics:</h1>
+        </div>
+      </div>
+    </main>
+  </div>
+{{ govukInput({
+    label: {
+      text: "Commission Rate:"
+    },
+    id: "CommissionRate",
+    name: "CommissionRate"
+  }) }}
+  {{ govukInput({
+    label: {
+      text: "Total Sales:"
+    },
+    id: "TotalSales",
+    name: "TotalSales"
+  }) }}
+{{ super() }}
+{% endblock %}
