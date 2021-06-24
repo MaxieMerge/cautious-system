@@ -15,14 +15,26 @@ router.get('/addemployee', (req, res) =>{
 
 router.post('/empadded', async (req, res) => {
     var emp = req.body;
-    let validation_output = employee(emp)
+    let validation_output = validateEmployee(emp)
 
     if(validation_output === true){
         let insertedKey = await hrteam.addEmp(emp)
         res.render('empadded')
     }else{
-        // res.locals.errormessage = validation_output
         res.render('addemployee', {errormessage: validation_output})
+    }
+
+})
+
+router.post('/salesempadded', async (req, res) => {
+    var salesEmp = req.body;
+    let validation_output = validateSalesEmployee(salesEmp)
+
+    if(validation_output === true){
+        // let insertedKey = await hrteam.addSalesEmp(salesEmp)
+        res.render('salesempadded')
+    }else{
+        res.render('addsalesemp', {errormessage: validation_output})
     }
 
 })
@@ -30,10 +42,6 @@ router.post('/empadded', async (req, res) => {
 router.get('/empadded', (req, res) =>{
     res.render('empadded')
 })
-
-// router.get('/addsalesemp', (req, res) =>{
-//     res.render('addsalesemp')
-// })
 
 module.exports = router
 
@@ -60,7 +68,7 @@ module.exports = router
 
 
 
-function employee(emp){
+function validateEmployee(emp){
     if(emp.Postcode.length > 8){
         return "INVALID INPUT: Postcode is too long"
     }
@@ -156,6 +164,58 @@ function employee(emp){
             return "INVALID INPUT: Salary cannot have letters in it"
         }
     }
-
     return true;
 }
+
+
+async function validateSalesEmployee(emp){
+    if(emp.EmployeeID.length === 0){
+        return "INVALID INPUT: Employee ID cannot be empty"
+    }
+    if(emp.CommissionRate.length === 0){
+        return "INVALID INPUT: Commission Rate cannot be empty"
+    }
+    if(emp.TotalSales.length === 0){
+        return "INVALID INPUT: Total Sales cannot be empty"
+    }
+    if(emp.EmployeeID < 0){
+        return "INVALID INPUT: EmployeeID cannot be negative"
+    }
+    if(emp.EmployeeID > 10000){
+        return "INVALID INPUT: EmployeeID is too big"
+    }    
+
+    var output = await hrteam.checkIfEmployeeIDexists(emp.EmployeeID)
+    if(output.length === 0){
+        return "INVALID INPUT: EmployeeID doesnt exist"
+    }
+
+    if(emp.CommissionRate < 0){
+        return "INVALID INPUT: Commission Rate cannot be negative"
+    }
+    if(emp.TotalSales < 0){
+        return "INVALID INPUT: Total sales cannot be negative"
+    }
+    if(emp.CommissionRate > 50){
+        return "INVALID INPUT: Commission Rate must be between 0 and 50"
+    }
+    for(let i = 0; i < emp.CommissionRate.length; i++){
+        if((/[a-zA-Z]/).test(emp.CommissionRate[i])){
+            return "INVALID INPUT: Commission rate cannot have letters in it"
+        }
+    }
+    for(let i = 0; i < emp.TotalSales.length; i++){
+        if((/[a-zA-Z]/).test(emp.TotalSales[i])){
+            return "INVALID INPUT: Total sales cannot have letters in it"
+        }
+    }
+    return true;
+}
+
+// async function func(str){
+//     var output = await hrteam.checkIfEmployeeIDexists(str)
+//     // console.log(output.length)
+//     // console.log(output)
+//     return output.length
+    
+// }
